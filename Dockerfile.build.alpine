@@ -1,0 +1,12 @@
+FROM alpine:3.3
+
+ENV GOPATH /go
+ENV GO15VENDOREXPERIMENT 1
+
+RUN mkdir -p "$GOPATH/src/" "$GOPATH/bin" && chmod -R 777 "$GOPATH" && \
+    mkdir -p /go/src/github.com/jwilder/docker-gen
+
+RUN apk --no-cache add go bash make curl ca-certificates git && \
+    ln -s /go/src/github.com/jwilder/docker-gen /app
+
+WORKDIR /app

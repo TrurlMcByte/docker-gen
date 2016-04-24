@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo "Building..."
+export PATH=$PATH:/go/bin
+go get github.com/robfig/glock
+go get github.com/fsouza/go-dockerclient
+go get github.com/BurntSushi/toml
+make
